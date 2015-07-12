@@ -1,0 +1,24 @@
+# Model with cleaning parameter
+model{
+for (i in 1:N)
+{
+
+MgCa[i] ~ dnorm(mu[i], pre)
+
+mu[i] <- ((exp(alpha1*T[i] + alpha2*S[i] +
+alpha0)+alpha3*21)*step(deltaCO3[i] -21) + 
+(exp(alpha1*T[i] + alpha2*S[i] +
+alpha0)+alpha3*deltaCO3[i] )* (1-step(deltaCO3[i]-21)) )/(1+alpha4*clean[i])
+}
+
+# priors
+alpha0 ~ dnorm(-2.8,4)
+alpha1 ~ dnorm(0.08,10000)
+alpha2 ~ dnorm(0.06,10000)
+alpha3 ~  dnorm(0.054,2770)
+alpha4 ~ dunif(0,0.4)
+pre ~ dgamma(1.0,0.1)
+}
+
+
+

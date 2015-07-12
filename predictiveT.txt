@@ -1,0 +1,16 @@
+
+
+
+model {
+for(i in 1:N)
+{
+MgCap[i]~dnorm(mup[i],pre)
+mup[i] <-  ((exp(alpha1*Tpred[i] + alpha2*Sp[i] + alpha0)+alpha3*21)*step(Dp[i] -21) + 
+(exp(alpha1*Tpred[i]+ alpha2*Sp[i]+ alpha0)+alpha3*Dp[i])* (1-step(Dp[i]-21)) )/(1+alpha4*cleanp[i])
+
+#Tpred[i]~dunif(10,35)
+#Tpred[i]~dnorm(T0[i],0.0625)
+Tpred[i]~dnorm(T0[i],0.25)
+}
+ }
+
