@@ -40,3 +40,5 @@ Prediction:
 Supporting Software
 
 The word presented in this study is based on BUGS (Bayesian inference Using Gibbs Sampling). To ensure cross-platform compatibility, we used JAGS (http://mcmc-jags.sourceforge.net) for the computation through the Matlab interface provided by matjags (http://psiexp.ss.uci.edu/research/programs_data/jags/). Please ensure that both jags and matjags are installed properly to run this software and acknowledge the original publications when using the Mg/Ca calibration algorithm. 
+
+Update 7/13/15: Added a R script for some of the calculations presented in the paper. The script require rjags but uses the same BUGS file already provided 
